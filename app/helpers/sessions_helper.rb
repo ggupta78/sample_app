@@ -12,4 +12,9 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?
   end
+
+  def log_out
+    @current_user = nil
+    reset_session
+  end
 end
