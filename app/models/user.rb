@@ -96,7 +96,7 @@ class User < ApplicationRecord
 
   # Feed
   def feed
-    Micropost.where('user_id = ?', id)
+    Micropost.where('user_id IN (?) OR user_id = ?', following_ids, id)
   end
 
   def follow(other_user)
